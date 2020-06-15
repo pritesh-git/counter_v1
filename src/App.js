@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [numbr,setnumbr] = useState(0);
+
+  const handleInc=()=>{if(numbr<50) setnumbr(numbr+1);}
+  const handleDec=()=>{if(numbr>0) setnumbr(numbr-1);}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <h1>{numbr}</h1>
+      <button onClick={handleDec}>-</button>
+      <button onClick={handleInc}>+</button>
     </div>
   );
 }
